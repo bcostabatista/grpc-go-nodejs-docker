@@ -3,3 +3,4 @@
 *.pb.go
 *.mod
 *.sum
+.env
