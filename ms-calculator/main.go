@@ -5,7 +5,7 @@ import (
 	"log"
 	"net"
 
-	products "github.com/bcostabatista/grpc-architecture/contracts/converted_proto"
+	products "github.com/bcostabatista/grpc-architecture/v1/contracts/converted_proto"
 	"google.golang.org/grpc"
 )
 

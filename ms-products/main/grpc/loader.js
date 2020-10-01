@@ -4,9 +4,9 @@ const protoLoader = require('@grpc/proto-loader');
 const { promisify } = require('util');
 const { packageDefinitionOptions } = require('./package_definition_options');
 
-module.exports = function load({ service, protoFile }) {
+module.exports = function load({ service, protoFile, apiVersion }) {
     const packageDefinition = protoLoader.loadSync(
-        path.resolve(__dirname, '../../api/contracts/', `${protoFile}.proto`),
+        path.resolve(__dirname, `../../api/business/${apiVersion}/contracts/`, `${protoFile}.proto`),
         packageDefinitionOptions
     );
 
