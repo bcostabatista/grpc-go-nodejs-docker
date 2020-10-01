@@ -1,0 +1,18 @@
+version: '3.1'
+
+services:
+  ms_products:
+    image: node:12.16.1-alpine
+    working_dir: "/usr/current/app"
+    command: ./entrypoint.sh
+    env_file: .env
+    volumes:
+      - .:/usr/current/app:rw
+      - ./node_modules:/usr/current/app/node_modules:cached
+    ports: [ "3000:3000" ]
+    networks: [ starter-net ]
+
+networks:
+  starter-net:
+    external:
+      name: starter-net

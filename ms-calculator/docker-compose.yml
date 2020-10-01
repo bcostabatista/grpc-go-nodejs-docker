@@ -1,0 +1,17 @@
+version: '3.1'
+
+services:
+  ms_calculator:
+    image: golang
+    working_dir: "/go/src"
+    command: ./entrypoint.sh
+    env_file: .env
+    volumes:
+      - .:/go/src:rw
+    ports: [ "50051:50051" ]
+    networks: [ starter-net ]
+
+networks:
+  starter-net:
+    external:
+      name: starter-net

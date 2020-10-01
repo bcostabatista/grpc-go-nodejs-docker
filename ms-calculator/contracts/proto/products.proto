@@ -1,0 +1,29 @@
+syntax = "proto3";
+
+option go_package = ".;products";
+
+message Product {
+  string id = 1;
+  string price_in_cents = 2;
+  string title = 3;
+  string description = 4;
+  
+  message Discount {
+    float pct = 1;
+    int32 value_in_cents = 2;
+  }
+
+  Discount discount = 5;
+}
+
+message ProductsRequest {
+  string id = 1;
+}
+
+message ProductsResponse {
+  repeated Product products = 1;
+}
+
+service ProductsService {
+  rpc getProducts(ProductsRequest) returns (ProductsResponse);
+}
